@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Магазин велосипедов</title>
+    <link href="../static/style/style1.css" th:href="@{/style/style1.css}" rel="stylesheet" />
+    <style>
+        /* Стили для всего сайта */
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Стили для шапки сайта */
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container1 {
+
+            max-width: 1200px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container::-webkit-scrollbar {
+            height: 6px;
+            width: 100%;
+        }
+
+        .container::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            background-color: #999;
+        }
+
+        .container::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+
+        .logo {
+            width: 40px;
+        }
+
+        nav {
+            margin-left: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+        .cart {
+            margin-left: 20px;
+        }
+
+        .cart a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .cart a:hover {
+            color: #ccc;
+        }
+
+        /* Стили для витрины с товарами */
+
+        .product-list {
+            width: 50em;
+            height: 320px;
+            overflow-y: hidden; /* Скрытие вертикального скроллбара */
+            white-space: nowrap;
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            overflow-x: auto; /* Горизонтальный скроллбар, работает всегда */
+            flex-wrap: nowrap; /* Расположение элементов горизонтально */
+        }
+
+        .product-card {
+            margin-top: 4%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            height: 185px;
+            width: 329px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .product-availability {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .custom-btn {
+            margin-top: 30px;
+            width: 130px;
+            height: 40px;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 25px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 500;
+            background: #DC5F00;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+            7px 7px 20px 0px rgba(0,0,0,.1),
+            4px 4px 5px 0px rgba(0,0,0,.1);
+            outline: none;
+        }
+        .btn-16 {
+            border: none;
+            color: #000;
+            z-index: 1;
+        }
+        .btn-16:after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            direction: rtl;
+            z-index: -1;
+            box-shadow:
+                    -7px -7px 20px 0px #fff9,
+                    -4px -4px 5px 0px #fff9,
+                    7px 7px 20px 0px #0002,
+                    4px 4px 5px 0px #0001;
+            transition: all 0.3s ease;
+        }
+        .btn-16:hover {
+            color: #000;
+        }
+        .btn-16:hover:after {
+            left: auto;
+            right: 0;
+            width: 100%;
+        }
+        .btn-16:active {
+            top: 2px;
+        }
+
+        /* Анимации */
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .custom-btn:hover {
+            background-color: #CF0A0A;
+        }
+
+        .custom-btn:active {
+            transform: translateY(2px);
+        }
+
+        /* Дополнительные стили */
+
+        .logo img {
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .cart a {
+            position: relative;
+        }
+
+        .cart a::after {
+            content: "";
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            font-size: 12px;
+            color: white;
+            text-align: center;
+            line-height: 10px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .product-availability {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .custom-btn {
+            margin-top: 20px;
+            width: 150px;
+            height: 50px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .copyright {
+            margin-bottom: 10px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-media a {
+            margin-right: 10px;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .social-media a:hover {
+            color: #ccc;
+        }
+
+        .icon {
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="https://i.postimg.cc/mk6fDV6Z/logo.png" alt="Логотип магазина велосипедов">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Велосипеды</a></li>
+                <li><a href="#">Аксессуары</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="cart">
+            <a href="#">Корзина</a>
+        </div>
+    </div>
+</header>
+
+<div class="container1">
+    <div class="product-list">
+        <!-- Здесь витрина с товарами -->
+        <div>
+            <button class="icon" onclick="scrolll()"> <i class="left"></i></button>
+        </div>
+        <div class="product-list">
+            <div class="product-card" th:each="bike : ${source}">
+                <h2 class="product-title" th:text="${bike.getName()}"></h2>
+                <p class="product-price" th:text="${bike.getPrice()} + ' руб.'"></p>
+                <p class="product-availability" th:text="${bike.getStatus().label}"></p>
+                <button class="custom-btn btn-16">Купить</button>
+            </div>
+        </div>
+        <div>
+            <button class="icon" onclick="scrollr()"> <i class="left"></i></button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="copyright">
+            &copy; 2023 Магазин велосипедов
+        </div>
+        <div class="social-media">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function scrolll() {
+        var left = document.querySelector();
+        left.scrollBy(350, 0)
+    }
+    function scrollr() {
+        var right = document.querySelector();
+        right.scrollBy(-350, 0)
+    }
+</script>
+</body>
+</html>

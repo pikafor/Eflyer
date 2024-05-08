@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href = "@{/style/reviews.css}" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="http://localhost:8080">Eflyer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/reviews">Отзывы </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/cart">Корзина </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/greeting">Каталог </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="users/login.html">Войти </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="users/profile.html">Профиль</a>
+                        </li>
+                        <li><a class="dropdown-item" href="orders/orders.html">Заказы</a></li>
+                        <li><a class="dropdown-item" href="#">Админ-панель</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Выйти
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>
+<figure class="snip1157">
+    <blockquote>Calvin: You know sometimes when I'm talking, my words can't keep up with my thoughts... I wonder why we think faster than we speak. Hobbes: Probably so we can think twice.
+        <div class="arrow"></div>
+    </blockquote>
+    <img th:src=@{https://sun9-60.userapi.com/impg/6m28pq2w9O7rfFdl4jo2-x1RnJl_sYsVb4Wgxg/JelBMlvOBlg.jpg?size=900x900&quality=96&sign=a01d60f6e88e2ed9e44706199a9cb1ba&c_uniq_tag=WXpy32U7pvm-WX4Ppa5qvD6LfxSeAGflCQx8wo7V25k&type=album} alt="sq-sample3" />
+    <div class="author">
+        <h5>Pelican Steve <span> LIttleSnippets.net</span></h5>
+    </div>
+</figure>
+<figure class="snip1157 hover">
+    <blockquote>Thank you. before I begin, I'd like everyone to notice that my report is in a professional, clear plastic binder...When a report looks this good, you know it'll get an A. That's a tip kids. Write it down.
+        <div class="arrow"></div>
+    </blockquote>
+    <img th:src=@{https://blenderartists.org/uploads/default/original/4X/3/5/6/356586247e89d617b9d87be55dac05221d226943.jpeg} alt="sq-sample27" />
+    <div class="author">
+        <h5>Max Conversion<span> LIttleSnippets.net</span></h5>
+    </div>
+</figure>
+<figure class="snip1157">
+    <blockquote>My behaviour is addictive functioning in a disease process of toxic co-dependency. I need holistic healing and wellness before I'll accept any responsibility for my actions.
+        <div class="arrow"></div>
+    </blockquote>
+    <img th:src=@{http://i.kym-cdn.com/photos/images/original/001/501/994/087.jpg} alt="sq-sample17" />
+    <div class="author">
+        <h5>Eleanor Faint<span> LIttleSnippets.net</span></h5>
+    </div>
+</figure>
+</body>
+</html>

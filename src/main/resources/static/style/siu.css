@@ -1,0 +1,83 @@
+{ 
+	margin: 0; 
+	padding: 0; 
+    box-sizing: border-box; 
+  } 
+   
+   
+  body { 
+    
+    font-family: Arial, sans-serif; 
+	background: url("../vendor/img/back.jpg") no-repeat center top fixed;
+
+  } 
+   
+  /* Размещаем форму по центру страницы */ 
+  form { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh; 
+  } 
+   
+  /* Стилизуем заголовок анкеты */ 
+  #anketa { 
+    font-size: 24px; 
+    font-weight: bold; 
+    margin-bottom: 20px;
+    color: white;
+  } 
+   
+  /* Стилизуем поля ввода */ 
+  input[type="text"], 
+  input[type="tel"], 
+  input[type="number"] { 
+    width: 300px; 
+    height: 30px; 
+    margin-bottom: 10px; 
+    padding: 5px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+  } 
+   
+  /* Стилизуем кнопку отправки */ 
+  input[type="submit"] { 
+    width: 250px; 
+    height: 40px; 
+    background-color: #3f51b5; 
+    color: #fff; 
+    font-weight: bold; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    margin-top: 20px; 
+  } 
+  input[type="submit"]:hover { 
+	
+    background-color: #303f9f; 
+  } 
+   
+  /* Стилизуем кнопку сброса */ 
+  .reset-btn { 
+    font-size: 25px; 
+    color: #3f51b5; 
+    cursor: pointer; 
+    margin-top: 10px; 
+  } 
+  .reset-btn:hover { 
+    text-decoration: underline; 
+  } 
+   
+  /* Медиа-запрос для адаптивности формы на мобильных устройствах */ 
+  @media screen and (max-width: 480px) { 
+    input[type="text"], 
+    input[type="tel"], 
+    input[type="number"] { 
+      width: 90%; 
+    } 
+    input[type="submit"] { 
+      width: 90%; 
+    } 
+  }

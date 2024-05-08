@@ -1,0 +1,39 @@
+body {
+    padding-top: 56px;
+    background: url("../img/back.jpg") no-repeat center top fixed;
+}
+.card-body {
+    color: black;
+    background-color: rgba(255, 223, 223, 0.404);
+}
+.card {
+    border: none;
+}
+.card-footer {
+    background-color: rgb(138, 116, 116);
+}
+.btn {
+    background-color: rgb(79, 64, 64);
+    color: aliceblue;
+}
+.btn:hover {
+    background-color: rgb(50, 41, 41);
+    border-color: rgb(50, 41, 41);
+}
+.btn-outline-success {
+    color: white;
+    border-color: rgb(79, 64, 64);
+}
+
+.list-group-item {
+    background-color: rgba(251, 233, 233, 0.195);
+    color: rgb(195, 174, 58);
+}
+.page-link {
+    background-color: rgba(251, 233, 233, 0.195);
+    color: rgb(195, 174, 58);
+    border: none;
+}
+.nav {
+    margin-left: 50%;
+}

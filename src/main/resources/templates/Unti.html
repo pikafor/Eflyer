@@ -1,0 +1,44 @@
+<!DOCTYPE html>  
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>  
+    <meta charset="UTF-8">  
+    <link rel="stylesheet" href="siu.css"/>  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Анкета для получения карты постоянного клиента</title>
+    <link th:href="@{../style/siu.css}" rel="stylesheet">
+</head>  
+<body>  
+    <form id="registrationForm">  
+        <div id="anketa">Заполните анкету</div> 
+        <input type="text" id="lastName" placeholder="Фамилия" oninput="this.value = this.value.toUpperCase()">  
+        <input type="text" id="firstName" placeholder="Имя" oninput="this.value = this.value.toUpperCase()">  
+        <input type="tel" id="phoneNumber" placeholder="Номер телефона">  
+        <input type="number" id="age" placeholder="Возраст">  
+        <input type="submit" value="Зарегестрировать Карту">  
+  
+        <div class="reset-btn" onclick="resetForm()">Ввести заново</div>  
+  
+    <script>  
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {  
+            event.preventDefault();  
+            let lastName = document.getElementById("lastName").value;  
+            let firstName = document.getElementById("firstName").value;  
+            let age = document.getElementById("age").value;  
+  
+            if (age < 18) {  
+                alert("Карта выдается только после 18 лет");  
+            } else {  
+                let cardNumber = Math.floor(Math.random() * 100000) + 1;  
+                alert(`Номер карты: ${cardNumber}\nФамилия: ${lastName}\nИмя: ${firstName}`);  
+            }  
+        });  
+  
+        function resetForm() {  
+            document.getElementById("firstName").value = "";  
+            document.getElementById("lastName").value = "";  
+            document.getElementById("phoneNumber").value = "";  
+            document.getElementById("age").value = "";  
+        }  
+    </script>  
+</body>  
+</html>
